@@ -34,8 +34,11 @@ react-learning/
 │
 ├── 02-components/
 │   └── React components practice
+|
+├── 03-props/
+│   └── React props practice
 │
-├── 03-.../
+├── 04-.../
 │   └── Upcoming concepts
 │
 └── README.md
