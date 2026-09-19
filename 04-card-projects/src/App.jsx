@@ -1,5 +1,5 @@
 import Card from "./components/Card";
-import { jobOpenings } from "./jobs";
+import { jobOpenings } from "./data/jobs";
 
 const App = () => {
   return (
