@@ -1,0 +1,16 @@
+.header{
+    background-color: blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+.btn{
+    background-color: rgb(224, 10, 46);
+}
+
+.logo{
+    text-decoration: underline;
+}
