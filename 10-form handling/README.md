@@ -1,16 +1,146 @@
-# React + Vite
+# Form Handling in React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Form handling in React means managing user input, validating form data, and handling form submission.
 
-Currently, two official plugins are available:
+React commonly uses event handlers such as `onChange` and `onSubmit` to handle forms.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Basic Form
 
-## React Compiler
+```jsx
+import { useState } from "react";
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+function App() {
+  const [name, setName] = useState("");
 
-## Expanding the ESLint configuration
+  function handleSubmit(e) {
+    e.preventDefault();
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+    console.log(name);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default App;
+```
+
+## Form Submission
+
+Use `onSubmit` to handle form submission:
+
+```jsx
+<form onSubmit={handleSubmit}>
+```
+
+The event handler:
+
+```jsx
+function handleSubmit(e) {
+  e.preventDefault();
+
+  // form logic
+}
+```
+
+### Why `preventDefault()`?
+
+Normally, submitting an HTML form can reload the page.
+
+```jsx
+e.preventDefault();
+```
+
+prevents that default browser behavior.
+
+## Handling Multiple Inputs
+
+```jsx
+const [form, setForm] = useState({
+  name: "",
+  email: "",
+  password: "",
+});
+```
+
+A common approach is to use the input's `name` attribute:
+
+```jsx
+function handleChange(e) {
+  setForm({
+    ...form,
+    [e.target.name]: e.target.value,
+  });
+}
+```
+
+Inputs:
+
+```jsx
+<input
+  name="name"
+  type="text"
+  onChange={handleChange}
+/>
+
+<input
+  name="email"
+  type="email"
+  onChange={handleChange}
+/>
+
+<input
+  name="password"
+  type="password"
+  onChange={handleChange}
+/>
+```
+
+## Form Validation
+
+Form handling can also include validation:
+
+```jsx
+function handleSubmit(e) {
+  e.preventDefault();
+
+  if (!form.name) {
+    console.log("Name is required");
+    return;
+  }
+
+  if (!form.email) {
+    console.log("Email is required");
+    return;
+  }
+
+  console.log("Form submitted", form);
+}
+```
+
+## Common Form Events
+
+| Event      | Purpose                          |
+| ---------- | -------------------------------- |
+| `onChange` | Detect input changes             |
+| `onSubmit` | Handle form submission           |
+| `onFocus`  | Detect when input receives focus |
+| `onBlur`   | Detect when input loses focus    |
+
+## Key Concepts
+
+* Handle form submission using `onSubmit`.
+* Use `e.preventDefault()` to prevent page reload.
+* Store form data using state.
+* Use `onChange` to detect user input.
+* Validate data before submitting.
+* Submit the processed data to an API when required.

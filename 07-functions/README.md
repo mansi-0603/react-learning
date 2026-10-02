@@ -1,16 +1,101 @@
-# React + Vite
+# Functions in React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React components are commonly written as JavaScript functions.
 
-Currently, two official plugins are available:
+Functions are also used for event handling, calculations, data processing, and other application logic.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Basic Function
 
-## React Compiler
+```jsx
+function greet() {
+  return "Hello";
+}
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Function Component
 
-## Expanding the ESLint configuration
+```jsx
+function App() {
+  return <h1>Hello React</h1>;
+}
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+export default App;
+```
+
+## Arrow Function
+
+React components can also be written using arrow functions.
+
+```jsx
+const App = () => {
+  return <h1>Hello React</h1>;
+};
+
+export default App;
+```
+
+## Functions with Parameters
+
+```jsx
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add(10, 20));
+```
+
+## Functions as Event Handlers
+
+```jsx
+function App() {
+  function handleClick() {
+    console.log("Button clicked");
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Click Me
+    </button>
+  );
+}
+```
+
+Notice:
+
+```jsx
+onClick={handleClick}
+```
+
+not:
+
+```jsx
+onClick={handleClick()}
+```
+
+The second version calls the function immediately during rendering.
+
+## Passing Arguments
+
+Use an arrow function when arguments are required:
+
+```jsx
+function handleClick(name) {
+  console.log(name);
+}
+
+<button onClick={() => handleClick("Mansi")}>
+  Click
+</button>
+```
+
+## Functions and Components
+
+Functions are important in React because they are used for:
+
+* Components
+* Event handlers
+* Data processing
+* API functions
+* Form handling
+* State updates
+* Utility functions

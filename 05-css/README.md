@@ -1,16 +1,90 @@
-# React + Vite
+# CSS in React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CSS is used to control the appearance and layout of React components.
 
-Currently, two official plugins are available:
+React does not replace CSS. It provides different ways to apply CSS to components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## External CSS
 
-## React Compiler
+Create a CSS file:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```css
+/* App.css */
 
-## Expanding the ESLint configuration
+.heading {
+  color: blue;
+  font-size: 32px;
+}
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Import it into the component:
+
+```jsx
+import "./App.css";
+
+function App() {
+  return <h1 className="heading">Hello React</h1>;
+}
+
+export default App;
+```
+
+## className
+
+In JSX, use `className` instead of HTML's `class`.
+
+```jsx
+<div className="container">
+  <h1>Hello</h1>
+</div>
+```
+
+## Multiple Classes
+
+```jsx
+<div className="card active">
+  Content
+</div>
+```
+
+## Inline CSS
+
+React also supports inline styles using JavaScript objects.
+
+```jsx
+function App() {
+  const headingStyle = {
+    color: "red",
+    fontSize: "30px",
+  };
+
+  return <h1 style={headingStyle}>Hello React</h1>;
+}
+```
+
+Notice that CSS properties use camelCase:
+
+```css
+font-size
+```
+
+becomes:
+
+```jsx
+fontSize
+```
+
+## When to Use CSS
+
+CSS can be used for:
+
+* Colors
+* Fonts
+* Spacing
+* Flexbox
+* Grid
+* Responsive design
+* Animations
+* Component layouts
+
+For larger projects, CSS can be organized using separate files, CSS Modules, or utility frameworks such as Tailwind CSS.

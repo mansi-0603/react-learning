@@ -1,16 +1,92 @@
-# React + Vite
+# Advanced useState
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This section covers more advanced patterns of using `useState`, including objects, arrays, previous state, and multiple state values.
 
-Currently, two official plugins are available:
+## Updating State Using Previous State
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+When the new state depends on the previous state, use the functional update form.
 
-## React Compiler
+```jsx
+const [count, setCount] = useState(0);
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+setCount((prevCount) => prevCount + 1);
+```
 
-## Expanding the ESLint configuration
+This is especially useful when multiple state updates happen together.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```jsx
+setCount((prev) => prev + 1);
+setCount((prev) => prev + 1);
+```
+
+## State with Objects
+
+```jsx
+const [user, setUser] = useState({
+  name: "Mansi",
+  age: 20,
+});
+```
+
+Update one property:
+
+```jsx
+setUser((prev) => ({
+  ...prev,
+  age: 21,
+}));
+```
+
+The spread operator keeps the other properties.
+
+## State with Arrays
+
+```jsx
+const [skills, setSkills] = useState([]);
+```
+
+Adding an item:
+
+```jsx
+setSkills((prev) => [...prev, "React"]);
+```
+
+Removing an item:
+
+```jsx
+setSkills((prev) =>
+  prev.filter((skill) => skill !== "React")
+);
+```
+
+## Multiple States
+
+A component can have multiple state variables:
+
+```jsx
+const [name, setName] = useState("");
+const [age, setAge] = useState(20);
+const [isActive, setIsActive] = useState(false);
+```
+
+## State Based on Previous State
+
+Prefer:
+
+```jsx
+setCount((prev) => prev + 1);
+```
+
+over:
+
+```jsx
+setCount(count + 1);
+```
+
+when the update depends on the previous value.
+
+## Key Concept
+
+State updates should be treated as immutable updates.
+
+Instead of modifying the existing object or array directly, create a new object or array and pass it to the state setter.

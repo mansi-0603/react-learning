@@ -1,16 +1,113 @@
-# React + Vite
+# React Props
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Props are used to pass data from a parent component to a child component.
 
-Currently, two official plugins are available:
+Props are **read-only**. A child component should not directly modify the props it receives.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Passing Props
 
-## React Compiler
+```jsx
+function App() {
+  return <User name="Sneha" age={20} />;
+}
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The `User` component receives these values through props.
 
-## Expanding the ESLint configuration
+```jsx
+function User(props) {
+  return (
+    <div>
+      <h2>{props.name}</h2>
+      <p>Age: {props.age}</p>
+    </div>
+  );
+}
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Destructuring Props
+
+Instead of writing `props.name` and `props.age`, we can destructure:
+
+```jsx
+function User({ name, age }) {
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>Age: {age}</p>
+    </div>
+  );
+}
+```
+
+## Passing Different Data Types
+
+Props can contain:
+
+### String
+
+```jsx
+<User name="Sneha" />
+```
+
+### Number
+
+```jsx
+<User age={20} />
+```
+
+### Boolean
+
+```jsx
+<User isStudent={true} />
+```
+
+### Array
+
+```jsx
+<User skills={["C++", "React", "SQL"]} />
+```
+
+### Object
+
+```jsx
+<User user={{ name: "Riya", age: 20 }} />
+```
+
+## Props vs State
+
+| Props                | State                    |
+| -------------------- | ------------------------ |
+| Passed from parent   | Managed inside component |
+| Read-only            | Can be updated           |
+| Used to pass data    | Used for dynamic data    |
+| Controlled by parent | Controlled by component  |
+
+## Example
+
+```jsx
+function Card({ title, description }) {
+  return (
+    <div>
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <Card
+        title="React"
+        description="A JavaScript library for building UI."
+      />
+
+      <Card
+        title="JavaScript"
+        description="A programming language used for web development."
+      />
+    </>
+  );
+}
+```

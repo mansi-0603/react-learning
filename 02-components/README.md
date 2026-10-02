@@ -1,16 +1,87 @@
-# React + Vite
+# React Components
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Components are the building blocks of a React application. A component is a reusable piece of UI that can contain its own structure, logic, and styling.
 
-Currently, two official plugins are available:
+## Creating a Component
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A React component is usually a JavaScript function that returns JSX.
 
-## React Compiler
+```jsx
+function Welcome() {
+  return <h1>Welcome to React</h1>;
+}
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+export default Welcome;
+```
 
-## Expanding the ESLint configuration
+## Using a Component
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```jsx
+import Welcome from "./Welcome";
+
+function App() {
+  return (
+    <div>
+      <Welcome />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Component Naming
+
+React components should start with a capital letter.
+
+```jsx
+function Navbar() {
+  return <nav>Navbar</nav>;
+}
+```
+
+Use:
+
+```jsx
+<Navbar />
+```
+
+Not:
+
+```jsx
+<navbar />
+```
+
+## Why Components?
+
+Components help with:
+
+* Reusability
+* Code organization
+* Separation of concerns
+* Maintaining large applications
+* Reusing UI in multiple places
+
+## Example
+
+```jsx
+function Header() {
+  return <h1>My Website</h1>;
+}
+
+function Footer() {
+  return <footer>Copyright 2026</footer>;
+}
+
+function App() {
+  return (
+    <>
+      <Header />
+      <main>Website Content</main>
+      <Footer />
+    </>
+  );
+}
+
+export default App;
+```
