@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Global base styles only. Page layout lives in components via Tailwind. */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #020617; /* slate-950 */
+  color: #f1f5f9;            /* slate-100 */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
