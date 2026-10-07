@@ -99,13 +99,128 @@ react-learning/
 
 ## 🚀 Projects
 
-Now applying everything I've learned by building projects.
+Now applying everything I've learned by building real projects.
 
-| # | Project | Concepts used | Status |
-|---|---------|---------------|--------|
-| 1 | _Project name_ | _e.g. useState, forms, localStorage_ | 🔜 Planned |
-| 2 | _Project name_ | _e.g. React Router, API integration_ | 🔜 Planned |
-| 3 | _Project name_ | _e.g. Context API, reusable components_ | 🔜 Planned |
+### 🗂️ Project Roadmap
+
+| # | Project | Concepts | Level | Status |
+|---|---------|----------|-------|--------|
+| 1 | Kanban Board (upgrade) | Context API, drag and drop, `localStorage`, Router | Mid | 🔜 Planned |
+| 2 | Movie Search App | API (TMDB), Router, debounce, pagination, favourites | Mid | 🔜 Planned |
+| 3 | E-commerce Cart | `useReducer`, Context, Router, filters, persistence | Mid | 🔜 Planned |
+| 4 | Expense Tracker | Forms, Context, `localStorage`, charts, filters | Beginner-mid | 🔜 Planned |
+| 5 | Weather App | API calls, loading/error states, search, `useEffect` | Beginner | 🔜 Planned |
+| 6 | Notes App | CRUD, tags, search, `localStorage`, reusable components | Beginner-mid | 🔜 Planned |
+| 7 | Quiz App | State flow, timer, score, results page | Beginner-mid | 🔜 Planned |
+| 8 | Blog / CMS | Router, forms, auth, protected routes, backend | Mid-advanced | 🔜 Planned |
+
+> Status legend: 🔜 Planned · 🚧 In progress · ✅ Done
+
+
+#### 1. Kanban Board (Upgrade)
+
+The Kanban board I already built, upgraded with the concepts I've learned since.
+
+##### Upgrade checklist
+
+- [ ] **Context API:** move board state into context (no props drilling between columns and cards)
+- [ ] **`localStorage` persistence:** tasks survive a page refresh
+- [ ] **Drag and drop:** move cards between columns (`@hello-pangea/dnd` or `dnd-kit`)
+- [ ] **Task details:** priority, due date, labels, description
+- [ ] **Edit / delete:** modal for editing and deleting tasks
+- [ ] **Search and filter:** by title, priority or label
+- [ ] **Dark / light theme:** reuse the theme switcher (Context + CSS variables)
+- [ ] **Multiple boards:** React Router routes like `/board/:id`
+- [ ] **Backend:** Firebase / Supabase / JSON Server, plus login
+
+##### Suggested structure
+
+```text
+kanban-board/
+└── src/
+    ├── context/
+    │   ├── BoardContext.jsx
+    │   └── ThemeContext.jsx
+    ├── components/
+    │   ├── Board.jsx
+    │   ├── Column.jsx
+    │   ├── TaskCard.jsx
+    │   ├── TaskModal.jsx
+    │   └── FilterBar.jsx
+    ├── pages/
+    │   ├── Home.jsx
+    │   └── BoardPage.jsx
+    ├── App.jsx
+    └── main.jsx
+```
+
+
+#### 2. Movie Search App
+
+- Search movies using the TMDB API
+- Movie detail page (`/movie/:id`)
+- Debounced search input
+- Pagination or infinite scroll
+- Favourites list saved in `localStorage`
+
+#### 3. E-commerce Cart
+
+- Product listing with category and price filters
+- Cart managed with `useReducer` + Context
+- Add / remove / update quantity, total price
+- Cart persists after refresh
+- Product detail and checkout pages via Router
+
+#### 4. Expense Tracker
+
+- Add income and expenses with a form
+- Category-wise filters and totals
+- Charts using Recharts
+- Data stored in `localStorage`
+
+#### 5. Weather App
+
+- Search weather by city
+- Loading and error states
+- Recent searches saved in `localStorage`
+
+#### 6. Notes App
+
+- Create, edit, delete notes (CRUD)
+- Tags and search
+- Optional markdown preview
+- Reusable components
+
+#### 7. Quiz App
+
+- Questions with multiple-choice options
+- Timer per question
+- Score and results page
+- Retry option
+
+#### 8. Blog / CMS
+
+- Create, edit, delete posts
+- Authentication and protected routes
+- Backend (Firebase / Supabase)
+- Rich forms with validation
+
+
+### ✅ Checklist for Every Project
+
+- [ ] Clean folder structure and reusable components
+- [ ] Responsive design
+- [ ] Loading and error handling
+- [ ] README with screenshots and features
+- [ ] Deployed on Vercel / Netlify with a live link
+- [ ] Code pushed to GitHub with meaningful commits
+
+### 🧭 Suggested Order
+
+1. **Kanban Board upgrade:** Context + drag and drop
+2. **Movie Search App:** API + Router
+3. **E-commerce Cart:** `useReducer` + Context
+4. Then the rest, based on interest
 
 ## 🎯 Next Goals
 
