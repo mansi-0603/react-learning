@@ -99,20 +99,20 @@ react-learning/
 
 ## 🚀 Projects
 
-Now applying everything I've learned by building real projects.
+Now applying everything I've learned by building real projects. Here're some projects for practing reactJs concepts.
 
 ### 🗂️ Project Roadmap
 
 | # | Project | Concepts | Level | Status |
 |---|---------|----------|-------|--------|
-| 1 | Kanban Board (upgrade) | Context API, drag and drop, `localStorage`, Router | Mid | 🔜 Planned |
-| 2 | Movie Search App | API (TMDB), Router, debounce, pagination, favourites | Mid | 🔜 Planned |
-| 3 | E-commerce Cart | `useReducer`, Context, Router, filters, persistence | Mid | 🔜 Planned |
-| 4 | Expense Tracker | Forms, Context, `localStorage`, charts, filters | Beginner-mid | 🔜 Planned |
-| 5 | Weather App | API calls, loading/error states, search, `useEffect` | Beginner | 🔜 Planned |
-| 6 | Notes App | CRUD, tags, search, `localStorage`, reusable components | Beginner-mid | 🔜 Planned |
-| 7 | Quiz App | State flow, timer, score, results page | Beginner-mid | 🔜 Planned |
-| 8 | Blog / CMS | Router, forms, auth, protected routes, backend | Mid-advanced | 🔜 Planned |
+| 1 | Kanban Board (upgrade) | Context API, drag and drop, `localStorage`, Router | Mid  
+| 2 | Movie Search App | API (TMDB), Router, debounce, pagination, favourites | Mid 
+| 3 | E-commerce Cart | `useReducer`, Context, Router, filters, persistence | Mid 
+| 4 | Expense Tracker | Forms, Context, `localStorage`, charts, filters | Beginner-mid
+| 5 | Weather App | API calls, loading/error states, search, `useEffect` | Beginner
+| 6 | Notes App | CRUD, tags, search, `localStorage`, reusable components | Beginner-mid
+| 7 | Quiz App | State flow, timer, score, results page | Beginner-mid
+| 8 | Blog / CMS | Router, forms, auth, protected routes, backend | Mid-advanced
 
 > Status legend: 🔜 Planned · 🚧 In progress · ✅ Done
 
